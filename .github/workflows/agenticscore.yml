@@ -1,0 +1,20 @@
+name: AgenticScore
+
+on:
+  pull_request:
+    paths:
+      - 'openapi.yaml'
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: slaterhaus/agenticscore-action@v1
+        with:
+          api-key: ${{ secrets.AGENTICSCORE_API_KEY }}
+          spec-path: openapi.yaml
