@@ -23,3 +23,23 @@ paths:
           description: Bad request.
         "500":
           description: Internal server error.
+  /users/{id}:
+    get:
+      operationId: getUser
+      summary: Get a user by ID
+      description: Returns a single user by their unique identifier.
+      tags: [Users]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The unique user ID.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The user object.
+        "404":
+          description: User not found.
+        "500":
+          description: Internal server error.

@@ -18,3 +18,5 @@ jobs:
         with:
           api-key: ${{ secrets.AGENTICSCORE_API_KEY }}
           spec-path: openapi.yaml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
